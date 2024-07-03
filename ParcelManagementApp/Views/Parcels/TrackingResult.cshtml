@@ -1,0 +1,45 @@
+﻿@model ParcelManagementApp.Models.Parcel
+
+@{
+    ViewData["Title"] = "Parcel Tracking Result";
+}
+
+<h1>Parcel Tracking Result</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">ID</dt>
+    <dd class="col-sm-10">@Model.Id</dd>
+
+    <dt class="col-sm-2">Status</dt>
+    <dd class="col-sm-10">@Model.Status</dd>
+
+    <dt class="col-sm-2">Current Location</dt>
+    <dd class="col-sm-10">@Model.Location</dd>
+</dl>
+
+<hr />
+
+<h2>Update Parcel Location</h2>
+
+<form method="post" asp-action="UpdateLocation" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <label for="newLocation">Select New Location:</label>
+        <select id="newLocation" name="newLocation" class="form-control">
+            <option value="Warehouse">Warehouse</option>
+            <option value="In Transit">In Transit</option>
+            <option value="Delivered">Delivered</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Location</button>
+</form>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success mt-3" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Back to Parcel List</a>
+</div>

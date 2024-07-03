@@ -53,6 +53,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "track",
+    pattern: "Parcels/Track",
+    defaults: new { controller = "Parcels", action = "Track" });
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 

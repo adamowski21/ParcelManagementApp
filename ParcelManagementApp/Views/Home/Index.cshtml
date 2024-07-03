@@ -4,6 +4,13 @@
 
 <div class="text-center">
     <h1>Welcome to ParcelManagementApp</h1>
+
+    <a class="btn btn-success btn-lg mb-3" asp-area="" asp-controller="Parcels" asp-action="Track">Track Parcel</a>
+
+    <a class="btn btn-info btn-lg mb-3" asp-area="" asp-controller="Parcels" asp-action="Index">View Parcels</a>
+
+    <hr />
+
     @if (User.Identity.IsAuthenticated)
     {
         <a class="btn btn-primary btn-lg" asp-area="" asp-controller="Parcels" asp-action="Create">Send the package</a>

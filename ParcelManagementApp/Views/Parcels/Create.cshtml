@@ -1,0 +1,53 @@
+﻿@model ParcelManagementApp.Models.ParcelDto
+
+@{
+    ViewData["Title"] = "Create Parcel";
+}
+
+<h1>Create Parcel</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label d-block">Name:</label>
+                <input asp-for="Name" class="form-control" placeholder="Enter parcel name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Size" class="control-label d-block">Size:</label>
+                <select asp-for="Size" class="form-control">
+                    <option value="S">Small (&lt; 500g)</option>
+                    <option value="M">Medium (&lt; 1000g)</option>
+                    <option value="L">Large (&gt;= 1000g)</option>
+                </select>
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address" class="control-label d-block">Address:</label>
+                <input asp-for="Address" class="form-control" placeholder="Enter delivery address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Supplier" class="control-label d-block">Supplier:</label>
+                <select asp-for="Supplier" class="form-control">
+                    <option value="Courier">Courier</option>
+                    <option value="PostOffice">Post Office</option>
+                </select>
+                <span asp-validation-for="Supplier" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-link">Back to List</a>
+</div>

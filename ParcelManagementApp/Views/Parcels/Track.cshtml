@@ -1,0 +1,30 @@
+﻿@model ParcelManagementApp.Models.Parcel
+
+@{
+    ViewData["Title"] = "Track Parcel";
+}
+
+<h1>Track Parcel</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label>Enter Parcel ID:</label>
+        <input type="text" name="id" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Track Parcel</button>
+</form>
+
+@if (Model != null)
+{
+    <h2>Parcel Details</h2>
+    <p><strong>Parcel ID:</strong> @Model.Id</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Location:</strong> @Model.Location</p>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
